@@ -34,3 +34,32 @@ header p{
 .justify-center{
     justify-content: center;
 }
+
+.card{
+    border: 2px dashed white;
+    padding: 20px;
+}
+
+.card h2, .card p{
+    color:magenta
+}
+
+.card h2 {
+    font-size: 38px;
+    border: 2px solid white;
+    padding: 15px;
+    border-radius: 5px;
+    position: absolute;
+    top: -34px;
+    /* width: 80%; */
+}
+
+.card p{
+    margin-top: 25px;
+}
+
+.card-block{
+    background: linear-gradient(magenta blue); 
+    padding: 15px;
+    border-radius: 10px;
+}
