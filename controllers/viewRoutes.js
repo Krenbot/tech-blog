@@ -30,3 +30,8 @@ router.get('/login', (req, res) => {
 });
 
 module.exports = router;
+
+//Get / 
+//Get /blog:id
+//Get LOGIN
+//Get Edit old post?
