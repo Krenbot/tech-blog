@@ -8,13 +8,13 @@ Comment.init(
         id: {
 
         },
-        title: {
-
-        },
         content: {
 
         },
         date_created: {
+
+        },
+        blog_id: {
 
         },
         user_id: {
