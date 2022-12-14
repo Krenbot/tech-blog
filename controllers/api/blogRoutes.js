@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { Blog } = require("../../models")
 
-//UPDATE (.put)
-//DELETE (.delete)
+//CREATE (.post /)
+//UPDATE (.put /:id)
+//DELETE (.delete /:id)
 
 
 module.exports = router;
