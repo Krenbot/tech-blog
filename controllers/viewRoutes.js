@@ -1,15 +1,16 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
-    });
+    // const userData = await User.findAll({
+    //   attributes: { exclude: ['password'] },
+    //   order: [['name', 'ASC']],
+    // });
+    let blog = await Blog.findAll()
 
-    const blog = blog.map(blog => blog.get({ plain: true }));
+    blog = blog.map(blog => blog.get({ plain: true }));
 
     res.render('homepage', {
       blog,
