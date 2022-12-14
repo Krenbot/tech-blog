@@ -5,6 +5,7 @@ router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
+    //TODO: PUT SIGNUP FORM HERE
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -23,22 +24,29 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again 26' });
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
+    console.log('===')
+
+    console.log(req.session.logged_in)
+
+    console.log('===')
+
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again 35' });
       return;
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      // req.session.user_id = userData.id;
       req.session.logged_in = true;
+      // req.session.email = userData.email;
 
       res.json({ user: userData, message: 'You are now logged in!' });
     });
