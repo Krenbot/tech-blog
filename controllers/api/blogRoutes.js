@@ -1,31 +1,28 @@
 const router = require("express").Router();
 const { Blog } = require("../../models")
 
-//CREATE (.post /)
+//CREATE
 router.post('/', async (req, res) => {
     try {
-
-
+        //TODO:
     } catch (err) {
         res.status(400).json(err)
     }
 })
 
-//UPDATE (.put /:id)
+//UPDATE
 router.put('/:id', async (req, res) => {
     try {
-
-
+        //TODO:
     } catch (err) {
         res.status(400).json(err)
     }
 })
 
-//DELETE (.delete /:id)
+//DELETE
 router.delete('/:id', async (req, res) => {
     try {
-
-
+        //TODO:
     } catch (err) {
         res.status(400).json(err)
     }
