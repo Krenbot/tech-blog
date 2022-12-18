@@ -30,7 +30,14 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+//TODO:
+// .get(/frontpage)
+//.get (createBlog)
+//.put (editBlog)
+//.get (blog:/id)
+
 module.exports = router;
 
+//NOTES:
 //Use withAuth in blog and comment routes
 //
