@@ -2,12 +2,9 @@ const router = require('express').Router();
 const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth');
 
+//TODO: REMOVE WITHAUTH FOR HOMEPAGE
 router.get('/', withAuth, async (req, res) => {
   try {
-    // const userData = await User.findAll({
-    //   attributes: { exclude: ['password'] },
-    //   order: [['name', 'ASC']],
-    // });
     let blog = await Blog.findAll()
 
     blog = blog.map(blog => blog.get({ plain: true }));
@@ -29,6 +26,8 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+//router.get('/dashboard') (GET ALL BLOGS W/ AUTH)
 
 //TODO:
 // .get(/frontpage)
