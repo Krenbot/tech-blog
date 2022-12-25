@@ -3,7 +3,7 @@ const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth');
 
 //TODO: REMOVE WITHAUTH FOR HOMEPAGE
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     let blog = await Blog.findAll()
 
@@ -30,9 +30,8 @@ router.get('/login', (req, res) => {
 //router.get('/dashboard') (GET ALL BLOGS W/ AUTH)
 
 //TODO:
-// .get(/frontpage)
-//.get (createBlog)
-//.put (editBlog)
+//.get (createBlog) WITH AUTH
+//.put (editBlog) WITH AUTH
 //.get (blog:/id)
 
 module.exports = router;
