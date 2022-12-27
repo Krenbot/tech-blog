@@ -1,14 +1,21 @@
-<h1>HELLO FROM HOMEPAGE</h1>
+<h1>HELLO FROM HOMEPAGE - TEST</h1>
 
 {{#each blog}}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{title}}</h2>
+<div class="card text-black my-3">
+  <div class="row card-header">
+    <div class="col-lg-6">
+      <h5 class="text-black">{{title}}</h5>
+    </div>
+    <div class="col-lg-6">
+      <p> Posted by: {{user.username}} on {{date_created}}</p>
+    </div>
   </div>
-  <div class="col-md-6">
-    <h3>{{content}}</h3>
+
+  <div class="card-body">
+    <p class="card-text">{{content}}</p>
   </div>
 </div>
 {{/each}}
 
+TODO
 <p>REMOVE LOGOUT PAGE FROM HOMEPAGE/ ADD SINGUP/LOGIN</p>
