@@ -8,6 +8,11 @@ Comment.init(
         content: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
         }
     },
     {
