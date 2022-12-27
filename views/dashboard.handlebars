@@ -1,4 +1,4 @@
-<h1>Dashboard - {{user.username}}'s Posts</h1>
+<h1>Dashboard - {{username}}'s Posts</h1>
 
 {{#each blogs}}
 <div class="card text-black my-3">
@@ -7,7 +7,7 @@
             <h5 class="text-black">{{title}}</h5>
         </div>
         <div class="col-lg-6">
-            <p> Posted by: {{user.username}} on {{format_date createdAt}}</p>
+            <p> Posted by: {{user.name}} on {{format_date createdAt}}</p>
         </div>
     </div>
 
