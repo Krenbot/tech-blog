@@ -1,5 +1,6 @@
 module.exports = {
-  //TODO: Add custom JS scipts
-  //Date/time formatting?
-
+  format_date: (date) => {
+    // Format date as MM/DD/YYYY
+    return date.toLocaleDateString();
+  },
 };
