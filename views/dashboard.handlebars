@@ -1,9 +1,18 @@
-<div id='blogPosts'>
-    {{#each blog}}
+<h1>Dashboard - {{user.username}}'s Posts</h1>
 
+{{#each blogs}}
+<div class="card text-black my-3">
+    <div class="row card-header">
+        <div class="col-lg-6">
+            <h5 class="text-black">{{title}}</h5>
+        </div>
+        <div class="col-lg-6">
+            <p> Posted by: {{user.username}} on {{format_date createdAt}}</p>
+        </div>
+    </div>
 
-
-
-
-    {{/eachP}}
+    <div class="card-body">
+        <p class="card-text">{{content}}</p>
+    </div>
 </div>
+{{/each}}

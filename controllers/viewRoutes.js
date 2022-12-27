@@ -1,8 +1,7 @@
 const router = require('express').Router();
-const { User, Blog } = require('../models');
+const { User, Blog, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-//TODO: REMOVE WITHAUTH FOR HOMEPAGE
 router.get('/', async (req, res) => {
   try {
     let blog = await Blog.findAll()
@@ -29,15 +28,28 @@ router.get('/login', (req, res) => {
 
 //Get all Blogs w/ auth
 router.get("/dashboard", withAuth, async (req, res) => {
+  console.log('Hello')
+  console.log(req.session.user_id)
   try {
     let blogs = await Blog.findAll({
-      include: [{ model: User }],
-    });
+      where:
+        { userId: req.session.user_id }
+    }
+      , {
+        include: [{
+          model: User,
+          attributes: ["name"]
+        }],
+      }
+    );
 
     blogs = blogs.map((blog) => blog.get({ plain: true }));
+
     console.log(blogs);
+
     res.render("dashboard", { blogs, logged_in: req.session.logged_in });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
