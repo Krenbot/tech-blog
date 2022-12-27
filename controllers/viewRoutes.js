@@ -27,7 +27,20 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-//router.get('/dashboard') (GET ALL BLOGS W/ AUTH)
+//Get all Blogs w/ auth
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    let blogs = await Blog.findAll({
+      include: [{ model: User }],
+    });
+
+    blogs = blogs.map((blog) => blog.get({ plain: true }));
+    console.log(blogs);
+    res.render("dashboard", { blogs, logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //TODO:
 //.get (createBlog) WITH AUTH
