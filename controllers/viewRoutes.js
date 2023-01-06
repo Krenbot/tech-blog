@@ -33,14 +33,18 @@ router.get("/dashboard", withAuth, async (req, res) => {
   console.log(req.session.user_id)
   try {
     let blogs = await Blog.findAll({
-      include: [User]
-    },
-      {
-        where:
-          { userId: req.session.user_id }
-      })
+      include: [User],
+      where:
+        { userId: req.session.user_id }
+    })
 
-    let sequlizeBlogs = blogs.map((blog) => blog.get({ plain: true }));
+    let sequlizeBlogs = blogs.map((blog) => {
+      console.log(blog)
+      return {
+        ...blog.get({ plain: true }),
+        belongsToUser: req.session.user_id === blog.userId
+      }
+    });
 
     console.log(sequlizeBlogs);
 

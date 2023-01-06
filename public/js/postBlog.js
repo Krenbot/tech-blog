@@ -22,3 +22,5 @@ newBlog.addEventListener("submit", (event) => {
         })
         .catch((err) => console.log(err));
 });
+//TODO ADD EVENT LISTENER FOR BLOG CREATE IN DASHBOARD
+//TODO CREATE NEW PAGE VIEW FOR NEW BLOG POST
