@@ -62,6 +62,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 module.exports = router;
 
-//NOTES:
+//TODO:
 //Use withAuth in blog and comment routes
 //
