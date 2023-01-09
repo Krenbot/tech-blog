@@ -11,7 +11,9 @@
 
         <div class="col-lg-2">
             {{#if belongsToUser}}
-            <button class="newBlog">Edit Post</button>
+            <a href="/{{blog.id}}">
+                <button class="newBlog">Edit Blog</button>
+            </a>
             {{/if}}
         </div>
 

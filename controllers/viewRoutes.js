@@ -28,9 +28,7 @@ router.get('/login', (req, res) => {
 
 //Get all Blogs w/ auth
 router.get("/dashboard", withAuth, async (req, res) => {
-  console.log('Hello')
 
-  console.log(req.session.user_id)
   try {
     let blogs = await Blog.findAll({
       include: [User],
@@ -39,14 +37,11 @@ router.get("/dashboard", withAuth, async (req, res) => {
     })
 
     let sequlizeBlogs = blogs.map((blog) => {
-      console.log(blog)
       return {
         ...blog.get({ plain: true }),
         belongsToUser: req.session.user_id === blog.userId
       }
     });
-
-    console.log(sequlizeBlogs);
 
     res.render("dashboard", { blogs: sequlizeBlogs, logged_in: req.session.logged_in, username: req.session.username });
   } catch (err) {
@@ -55,10 +50,24 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+router.get('/blog/:id', async (req, res) => {
+  try {
+    // let blog = await Blog.findAll()
+
+    // blog = blog.map(blog => blog.get({ plain: true }));
+
+    res.render('editBlog', {
+      // blog,
+      // logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //TODO:
 //.get (createBlog) WITH AUTH
 //.put (editBlog) WITH AUTH
-//.get (blog:/id)
 
 module.exports = router;
 
