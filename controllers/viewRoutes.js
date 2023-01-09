@@ -52,14 +52,17 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 router.get('/blog/:id', async (req, res) => {
   try {
-    // let blog = await Blog.findAll()
 
-    // blog = blog.map(blog => blog.get({ plain: true }));
+    console.log('Hello from console log')
+
+    const log = await Blog.findByPk(req.params.id)
+
+    console.log(log.dataValues)
 
     res.render('editBlog', {
-      // blog,
-      // logged_in: req.session.logged_in,
+      data: log.dataValues
     });
+
   } catch (err) {
     res.status(500).json(err);
   }

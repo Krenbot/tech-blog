@@ -1,8 +1,12 @@
-const editBlog = document.getElementById("editBlog");
+const editBlog = document.querySelector(".editBlogForm");
 
 editBlog.addEventListener("submit", (event) => {
     event.preventDefault();
-    const { title: title, content: content } = event.target.elements;
+
+    console.log(window.location.pathname.split('/')[3])
+
+    const title = document.querySelector('.editBlogTitle').value
+    const content = document.querySelector('.editBlogContent').value
 
     const blogData = {
         title: title.value,
@@ -21,4 +25,6 @@ editBlog.addEventListener("submit", (event) => {
             }
         })
         .catch((err) => console.log(err));
+
+    // console.log('Button Clicked!')
 });
