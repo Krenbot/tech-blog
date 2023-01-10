@@ -18,21 +18,25 @@ router.post('/', async (req, res) => {
 
 //UPDATE
 router.put('/:id', async (req, res) => {
+
+    console.log(req.body, req.params.id, req.session.user_id)
+
     try {
         const updateBlog = await Blog.update(req.body, {
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
+                userId: req.session.user_id,
             }
         })
 
         if (updateBlog > 0) {
             res.status(200).json(updateBlog)
         } else {
-            res.status(404)
+            res.status(404).send()
         }
 
     } catch (err) {
+        console.log(err)
         res.status(400).json(err)
     }
 })

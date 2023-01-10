@@ -1,16 +1,18 @@
-<h1>EDIT POST TEST</h1>
-<h2>
-    {{data.title}}
-</h2>
+<h1>EDIT {{data.title}}</h1>
 
 <form class='editBlogForm'>
-    <input class='editBlogTitle' />
 
-    <h2>
-        {{data.content}}
-    </h2>
+    <label for='title'>
+        EDIT POST TITLE
+    </label>
 
-    <input class='editBlogContent' />
+    <input name='title' type='text' class='editBlogTitle form-control' value="{{data.title}}" />
+
+    <label for='content'>
+        EDIT POST
+    </label>
+
+    <textarea name='content' class='editBlogContent form-control' rows='15'>{{data.content}}</textarea>
 
     <button type='submit' class='editBlog'>SUBMIT</button>
 </form>

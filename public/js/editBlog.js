@@ -1,18 +1,26 @@
 const editBlog = document.querySelector(".editBlogForm");
 
+const title = document.querySelector('.editBlogTitle')
+
+const content = document.querySelector('.editBlogContent')
+
+console.log(content.value)
+
+console.log(title.value)
+
 editBlog.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    console.log(window.location.pathname.split('/')[3])
-
-    const title = document.querySelector('.editBlogTitle').value
-    const content = document.querySelector('.editBlogContent').value
+    const blogId = (window.location.pathname.split('/')[2])
 
     const blogData = {
         title: title.value,
         content: content.value,
     };
-    fetch("/api/blogRoutes/:id", {
+
+    console.log(blogData)
+
+    fetch(`/api/blogs/${blogId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -25,6 +33,4 @@ editBlog.addEventListener("submit", (event) => {
             }
         })
         .catch((err) => console.log(err));
-
-    // console.log('Button Clicked!')
 });

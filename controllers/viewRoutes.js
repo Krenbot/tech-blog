@@ -52,12 +52,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 router.get('/blog/:id', async (req, res) => {
   try {
-
-    console.log('Hello from console log')
-
     const log = await Blog.findByPk(req.params.id)
-
-    console.log(log.dataValues)
 
     res.render('editBlog', {
       data: log.dataValues
