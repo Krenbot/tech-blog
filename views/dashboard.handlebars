@@ -1,7 +1,6 @@
 <h1>Dashboard - {{username}}'s Posts</h1>
 
 {{#each blogs}}
-
 <div class="card text-black my-3">
     <div class="row card-header">
 
@@ -12,7 +11,7 @@
         <div class="col-lg-2">
             {{#if belongsToUser}}
             <a href='/blog/{{id}}'>
-                <button class="editBlog">Edit Blog</button>
+                <button class="editBlog">Edit Post</button>
             </a>
             {{/if}}
         </div>

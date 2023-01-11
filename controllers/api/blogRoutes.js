@@ -18,9 +18,6 @@ router.post('/', async (req, res) => {
 
 //UPDATE
 router.put('/:id', async (req, res) => {
-
-    console.log(req.body, req.params.id, req.session.user_id)
-
     try {
         const updateBlog = await Blog.update(req.body, {
             where: {

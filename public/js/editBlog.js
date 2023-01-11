@@ -4,10 +4,6 @@ const title = document.querySelector('.editBlogTitle')
 
 const content = document.querySelector('.editBlogContent')
 
-console.log(content.value)
-
-console.log(title.value)
-
 editBlog.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -17,8 +13,6 @@ editBlog.addEventListener("submit", (event) => {
         title: title.value,
         content: content.value,
     };
-
-    console.log(blogData)
 
     fetch(`/api/blogs/${blogId}`, {
         method: "PUT",

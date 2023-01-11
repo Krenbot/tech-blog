@@ -4,7 +4,9 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    let blog = await Blog.findAll()
+    let blog = await Blog.findAll({
+      include: [User],
+    })
 
     blog = blog.map(blog => blog.get({ plain: true }));
 
@@ -39,6 +41,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     let sequlizeBlogs = blogs.map((blog) => {
       return {
         ...blog.get({ plain: true }),
+        //checks if post belongs to user
         belongsToUser: req.session.user_id === blog.userId
       }
     });
