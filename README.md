@@ -22,13 +22,15 @@ My motivation was to build a CMS-style blog site similar to a Wordpress site, wh
 * [Postman](https://www.postman.com/) - seeing routed data
 
 ## Challenges
-* 
-* 
-* 
+* Combining front end and back end.
+* Testing changes in Postman
+* Learning handlebars useage
 
 ## Future Implementation
-* 
-* 
+* 3rd party website implmentation
+* Upvotes/downvotes
+* User reviews
+* Attached forum
 
 ## User Story
 ```
