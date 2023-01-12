@@ -3,6 +3,8 @@
 ## Description
 Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
 
+My motivation was to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. I built this site completely from scratch and deployed it to Heroku. It follows the MVC paradigm in its architectural structure, uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+
 ## Table of Contents
   1) [Technologies](#technologies-used)
   2) [Challenges](#challenges)
@@ -11,8 +13,6 @@ Writing about tech can be just as important as making it. Developers spend plent
   5) [Demonstration](#demonstration)
   6) [Installation](#installation)
   7) [License](#license)
-
-My motivation was to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. I built this site completely from scratch and deploy it to Heroku. It follows the MVC paradigm in its architectural structure, uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## Technologies
 * [nodejs](https://nodejs.org/en/) - to run the server in the terminal
