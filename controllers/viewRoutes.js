@@ -30,7 +30,6 @@ router.get('/login', (req, res) => {
 
 //Get all Blogs w/ auth
 router.get("/dashboard", withAuth, async (req, res) => {
-
   try {
     let blogs = await Blog.findAll({
       include: [User],
@@ -60,7 +59,8 @@ router.get('/blog/:id', async (req, res) => {
     const viewName = req.session.logged_in ? 'editBlog' : 'post'
 
     res.render(viewName, {
-      data: log.dataValues
+      data: log.dataValues,
+      logged_in: req.session.logged_in
     });
 
   } catch (err) {
@@ -68,12 +68,4 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
-//TODO:
-//.get (createBlog) WITH AUTH
-//.put (editBlog) WITH AUTH
-
 module.exports = router;
-
-//TODO:
-//Use withAuth in blog and comment routes
-//
