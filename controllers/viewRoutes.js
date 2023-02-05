@@ -59,8 +59,6 @@ router.get('/blog/:id', async (req, res) => {
 
     const viewName = req.session.logged_in ? 'editBlog' : 'post'
 
-    console.log(viewName)
-
     res.render(viewName, {
       data: log.dataValues
     });
