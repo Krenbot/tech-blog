@@ -8,9 +8,7 @@ Blog.belongsTo(User, {
 })
 User.hasMany(Blog, {
     foreignKey: "userId",
-
 })
-
 
 Blog.hasMany(Comment, {
     foreignKey: 'blogId',

@@ -57,7 +57,11 @@ router.get('/blog/:id', async (req, res) => {
   try {
     const log = await Blog.findByPk(req.params.id)
 
-    res.render('editBlog', {
+    const viewName = req.session.logged_in ? 'editBlog' : 'post'
+
+    console.log(viewName)
+
+    res.render(viewName, {
       data: log.dataValues
     });
 
